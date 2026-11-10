@@ -34,8 +34,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <GradientPlaceholder label={title} />
       )}
       <div className="p-6">
-        <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-gray-400 text-sm mb-4 line-clamp-3">{description}</p>
+        <h3 className="text-xl font-bold text-champagne mb-2">{title}</h3>
+        <p className="text-text-muted text-sm mb-4 line-clamp-3">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {services.map((service, index) => (
             <span key={index} className="bg-kinpaku/10 text-kinpaku text-xs px-3 py-1 rounded-full font-medium">

@@ -9,7 +9,7 @@ export default function ServiciosPuntuales() {
         <h1 className="text-4xl md:text-5xl font-extrabold text-champagne mb-4 font-display">
           Catálogo de Servicios Puntuales
         </h1>
-        <p className="text-lg text-gray-300 leading-relaxed mb-6">
+        <p className="text-lg text-text-muted leading-relaxed mb-6">
           Adquiere activos digitales de alto valor con una única inversión, sin suscripciones. Ideal para necesidades específicas y resultados rápidos.
         </p>
         <div className="mt-8">

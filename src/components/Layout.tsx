@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -12,6 +13,8 @@ const links = [
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -19,8 +22,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   }, [menuOpen]);
 
   return (
-    <div className="min-h-screen bg-lacquer text-champagne">
-      <header className="fixed top-0 left-0 right-0 z-40 bg-lacquer/95 border-b border-gold-hairline">
+    <div className={isHome ? "min-h-screen text-white" : "min-h-screen bg-lacquer text-champagne"}>
+      <header
+        className={
+          isHome
+            ? "fixed top-0 left-0 right-0 z-40 bg-black/40 backdrop-blur-md border-b border-white/10"
+            : "fixed top-0 left-0 right-0 z-40 bg-lacquer/95 border-b border-gold-hairline"
+        }
+      >
         <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="text-2xl font-extrabold text-gradient">
             Jordan Digitalizaciones
@@ -32,7 +41,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <li key={href}>
                 <Link
                   href={href}
-                  className="block px-4 py-2 rounded-lg text-text-warm hover:text-champagne hover:bg-kinpaku/10 transition-all font-medium text-sm"
+                  className={
+                    isHome
+                      ? "block px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-all font-medium text-sm"
+                      : "block px-4 py-2 rounded-lg text-text-warm hover:text-champagne hover:bg-kinpaku/10 transition-all font-medium text-sm"
+                  }
                 >
                   {label}
                 </Link>
@@ -42,7 +55,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
           {/* MOBILE HAMBURGER */}
           <button
-            className="md:hidden text-white focus:outline-none p-2 z-50"
+            className={`md:hidden focus:outline-none p-2 z-50 ${isHome ? "text-white" : "text-champagne"}`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
           >
@@ -63,7 +76,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           {/* MOBILE DRAWER */}
           <div
             aria-hidden={!menuOpen}
-            className={`fixed top-0 right-0 h-dvh w-72 bg-lacquer-raised z-50 md:hidden transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'} flex flex-col pt-20 pb-6 px-6 overflow-y-auto`}
+            className={`fixed top-0 right-0 h-dvh w-72 z-50 md:hidden transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'} flex flex-col pt-20 pb-6 px-6 overflow-y-auto ${
+              isHome ? "bg-[#04070d]" : "bg-lacquer-raised"
+            }`}
           >
             <ul className="flex flex-col gap-1">
               {links.map(({ href, label }) => (
@@ -71,14 +86,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   <Link
                     href={href}
                     onClick={() => setMenuOpen(false)}
-                    className="block px-4 py-3 rounded-lg text-text-warm hover:text-champagne hover:bg-kinpaku/10 transition-all font-medium"
+                    className={
+                      isHome
+                        ? "block px-4 py-3 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-all font-medium"
+                        : "block px-4 py-3 rounded-lg text-text-warm hover:text-champagne hover:bg-kinpaku/10 transition-all font-medium"
+                    }
                   >
                     {label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <div className="mt-auto border-t border-gold-hairline pt-4">
+            <div className={`mt-auto pt-4 ${isHome ? "border-t border-white/10" : "border-t border-gold-hairline"}`}>
               <a
                 href="https://wa.me/56930973700"
                 target="_blank"
@@ -93,16 +112,22 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </nav>
       </header>
 
-      <main className="pt-16 min-h-screen pb-16">
+      <main className={isHome ? "" : "pt-16 min-h-screen pb-16"}>
         {children}
       </main>
 
-      <footer className="border-t border-gold-hairline bg-lacquer">
+      <footer className={isHome ? "relative z-10 border-t border-white/10 bg-black/40" : "border-t border-gold-hairline bg-lacquer"}>
         <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-text-muted">
+          <p className={isHome ? "text-sm text-slate-500" : "text-sm text-text-muted"}>
             &copy; {new Date().getFullYear()} Jordan Digitalizaciones. Todos los derechos reservados.
           </p>
-          <a href="https://wa.me/56930973700" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" className="text-text-muted hover:text-kinpaku transition-colors">
+          <a
+            href="https://wa.me/56930973700"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contactar por WhatsApp"
+            className={isHome ? "text-slate-500 hover:text-emerald-400 transition-colors" : "text-text-muted hover:text-kinpaku transition-colors"}
+          >
             <FaWhatsapp size={20} />
           </a>
         </div>
