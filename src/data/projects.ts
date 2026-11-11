@@ -12,13 +12,6 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    title: "AxisPanel — Panel de Administración",
-    description:
-      "Panel de control centralizado (command center) para gestionar PCs, teléfonos y VPS como un cluster: scraping, CRM, chat con IA, Google Drive, WhatsApp y monitoreo de servicios en tiempo real.",
-    services: ["Svelte 5", "Node.js", "WhatsApp (Baileys)", "Tiempo Real"],
-    accent: "emerald",
-  },
-  {
     title: "SAM Conecta — Red de Rescate de Alimentos",
     description:
       "Plataforma comunitaria que conecta vecinos para rescatar alimentos y construir una economía circular local. Next.js, Supabase, pagos en línea, mapas y autenticación completa.",
@@ -65,13 +58,6 @@ export const PROJECTS: Project[] = [
     services: ["Vite + React", "Canvas", "Game Dev"],
     demo: "https://slither-clone-lime.vercel.app",
     accent: "rose",
-  },
-  {
-    title: "Colaborador Digital Integral — Merlin MKT (2025)",
-    description:
-      "Desarrollo web, campañas publicitarias, diseño gráfico, producción de video y optimización de procesos para múltiples marcas (ABO Virtual, Sauna Mar, Ta' Riko, entre otras).",
-    services: ["Desarrollo Web", "Publicidad Digital", "Diseño", "Video", "Estrategia"],
-    accent: "slate",
   },
   {
     title: "@laputamadrejordan — Marca Personal",
