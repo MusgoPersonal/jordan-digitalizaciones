@@ -59,24 +59,27 @@ export default function ServiciosPage() {
   const totalMonthly = cart.filter((i) => i.paymentType === "monthly").reduce((s, i) => s + i.price, 0);
   const totalAnnual = cart.filter((i) => i.paymentType === "annual").reduce((s, i) => s + i.price, 0);
 
+  const buildSummary = () =>
+    cart.length > 0
+      ? "\n\nServicios Cotizados:\n" +
+        cart
+          .map((i) => `- ${i.categoryTitle} (${i.levelName}): ${getPaymentLabel(i.paymentType)} - ${formatCurrency(i.price)}`)
+          .join("\n")
+      : "";
+
+  const buildBody = () =>
+    `Hola Jordan,\n\nMi nombre es ${formName}.\n\n${formMessage}${buildSummary()}\n\nMi correo de contacto: ${formEmail}`;
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    let summary = "";
-    if (cart.length > 0) {
-      summary = "\n\nServicios Cotizados:\n" + cart.map((i) => `- ${i.categoryTitle} (${i.levelName}): ${getPaymentLabel(i.paymentType)} - ${formatCurrency(i.price)}`).join("\n");
-    }
-    const body = encodeURIComponent(`Hola Jordan,\n\nMi nombre es ${formName}.\n\n${formMessage}${summary}\n\nMi correo de contacto: ${formEmail}`);
-    window.location.href = `mailto:digitalizacionesisaacjordan@gmail.com?subject=Cotización de Servicios - ${formName}&body=${body}`;
+    window.open(`https://wa.me/56930973700?text=${encodeURIComponent(buildBody())}`, '_blank');
   };
 
-  const whatsappMsg = encodeURIComponent(
-    `Hola Jordan, vi sus servicios y me gustaría más información.${
-      cart.length > 0
-        ? "\n\nMi cotización actual:\n" +
-          cart.map((i) => `- ${i.categoryTitle} (${i.levelName}): ${getPaymentLabel(i.paymentType)} - ${formatCurrency(i.price)}`).join("\n")
-        : ""
-    }`
-  );
+  const handleEmail = () => {
+    const subject = encodeURIComponent(`Cotización de Servicios - ${formName}`);
+    const body = encodeURIComponent(buildBody());
+    window.location.href = `mailto:digitalizacionesisaacjordan@gmail.com?subject=${subject}&body=${body}`;
+  };
 
   return (
     <div className="min-h-screen bg-lacquer text-champagne">
@@ -206,8 +209,8 @@ export default function ServiciosPage() {
               <textarea value={formMessage} onChange={(e) => setFormMessage(e.target.value)} required className="w-full px-4 py-3 rounded-lg bg-lacquer border border-gold-hairline text-champagne focus:outline-none focus:border-kinpaku h-24" placeholder="Cuéntanos más sobre lo que buscas..." />
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <button type="submit" className="flex-1 bg-kinpaku text-lacquer-deep hover:opacity-90 font-bold py-3 px-6 rounded-lg transition-opacity">Enviar por Correo</button>
-              <a href={`https://wa.me/56930973700?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer" className="flex-1 bg-verdigris hover:opacity-90 text-lacquer-deep font-bold py-3 px-6 rounded-lg transition-opacity text-center">Consultar por WhatsApp</a>
+              <button type="submit" className="flex-1 bg-kinpaku text-lacquer-deep hover:opacity-90 font-bold py-3 px-6 rounded-lg transition-opacity">Enviar por WhatsApp</button>
+              <button type="button" onClick={handleEmail} className="flex-1 bg-verdigris hover:opacity-90 text-lacquer-deep font-bold py-3 px-6 rounded-lg transition-opacity text-center">Enviar por Correo</button>
             </div>
           </form>
         </section>

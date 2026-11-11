@@ -10,9 +10,11 @@ export default function Contacto() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailto = `mailto:digitalizacionesisaacjordan@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${message}`)}`;
-    window.location.href = mailto;
+    const text = `Hola Jordan, soy ${name}.\n\nAsunto: ${subject}\n\n${message}\n\nMi correo: ${email}`;
+    window.open(`https://wa.me/56930973700?text=${encodeURIComponent(text)}`, '_blank');
   };
+
+  const mailtoHref = `mailto:digitalizacionesisaacjordan@gmail.com?subject=${encodeURIComponent(subject || 'Contacto desde la web')}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${message}`)}`;
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 bg-lacquer text-champagne min-h-[calc(100vh-80px)] flex items-center justify-center">
@@ -97,8 +99,14 @@ export default function Contacto() {
               type="submit"
               className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-lacquer-deep bg-kinpaku hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-kinpaku"
             >
-              Enviar Mensaje
+              Enviar por WhatsApp
             </button>
+            <a
+              href={mailtoHref}
+              className="mt-3 w-full flex justify-center py-2 px-4 border border-gold-hairline rounded-md text-sm font-medium text-text-warm hover:border-kinpaku transition-colors"
+            >
+              o enviar por correo
+            </a>
           </div>
         </form>
         <p className="mt-8 text-center text-sm text-text-muted">
