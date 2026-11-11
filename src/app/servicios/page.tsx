@@ -1,6 +1,16 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { SERVICES_DATA, TOOLS_COST, formatCurrency } from "@/data/services";
+
+// Subpágina de detalle por categoría (opcional)
+const CATEGORY_DETAIL: Record<string, string> = {
+  landing: "/servicios/starter-packs",
+  website: "/servicios/sitio-web-escalable",
+  design: "/servicios/diseno-recurrente",
+  social: "/servicios/utilidades-digitales",
+  inmersive: "/servicios/ingenieria-ux-ui-web-inmersiva",
+};
 
 interface CartItem {
   categoryId: string;
@@ -89,6 +99,17 @@ export default function ServiciosPage() {
             </button>
           ))}
         </div>
+
+        {CATEGORY_DETAIL[activeCategory] && (
+          <div className="text-center mb-6">
+            <Link
+              href={CATEGORY_DETAIL[activeCategory]}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-kinpaku hover:text-kinpaku-deep transition-colors"
+            >
+              Ver página completa de {activeData.title} →
+            </Link>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
           {activeData.levels.map((level, idx) => (

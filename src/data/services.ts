@@ -31,7 +31,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       },
       {
         name: "Nivel Premium (Alto Rendimiento)",
-        prices: { unique: 499000, monthly: 99000, annual: 999000 },
+        prices: { unique: 499000, monthly: 159000, annual: 1599000 },
         features: ["Branding completo (voz, tono y diseño avanzado)", "WPO (Velocidad) y SEO optimizado", "Pixel de Meta + Seguimiento de comportamiento", "Chatbot básico y conexión con CRM (HubSpot/ActiveCampaign)", "Reporte de leads mensual (solo en suscripción)", "2 Workshops estratégicos anuales (solo en suscripción anual)"]
       },
       {

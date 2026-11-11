@@ -4,7 +4,7 @@ export default function DisenoRecurrente() {
   const nivel1Services = [
     {
       title: "Setup Puntual",
-      price: "$49.000",
+      price: "$79.000",
       description: "Diseño inicial de una pieza gráfica estática para empezar con buen pie.",
       features: [
         { label: "1 Pieza Gráfica Estática", included: true },
@@ -14,7 +14,7 @@ export default function DisenoRecurrente() {
     },
     {
       title: "Suscripción Mensual",
-      price: "$79.000/mes",
+      price: "$150.000/mes",
       description: "Contenido básico y presencia constante en redes cada mes.",
       features: [
         { label: "4 Piezas Estáticas Mensuales", included: true },
@@ -27,7 +27,7 @@ export default function DisenoRecurrente() {
     },
     {
       title: "Suscripción Anual",
-      price: "$799.000/año",
+      price: "$1.500.000/año",
       description: "Asegura tu contenido por un año y ahorra en el proceso.",
       features: [
         { label: "4 Piezas Estáticas Mensuales", included: true },
@@ -42,7 +42,7 @@ export default function DisenoRecurrente() {
   const nivel2Services = [
     {
       title: "Setup Puntual PRO",
-      price: "$99.000",
+      price: "$149.000",
       description: "Setup inicial con contenido más avanzado como carruseles o animaciones.",
       features: [
         { label: "2 Carruseles o 2 Animaciones", included: true },
@@ -52,7 +52,7 @@ export default function DisenoRecurrente() {
     },
     {
       title: "Suscripción Mensual PRO",
-      price: "$149.000/mes",
+      price: "$280.000/mes",
       description: "Mayor volumen y variedad de contenido para tus redes sociales.",
       features: [
         { label: "8 Piezas Totales / mes", included: true },
@@ -64,7 +64,7 @@ export default function DisenoRecurrente() {
     },
     {
       title: "Suscripción Anual PRO",
-      price: "$1,499.000/año",
+      price: "$2.800.000/año",
       description: "El plan anual para un flujo de contenido profesional y versátil.",
       features: [
         { label: "8 Piezas Totales / mes", included: true },
@@ -78,7 +78,7 @@ export default function DisenoRecurrente() {
   const nivel3Services = [
     {
       title: "Setup Puntual VIP",
-      price: "$199.000",
+      price: "$299.000",
       description: "Setup de alta calidad con videos cortos o mockups de producto.",
       features: [
         { label: "4 Videos Cortos o 4 Mockups de Producto", included: true },
@@ -88,7 +88,7 @@ export default function DisenoRecurrente() {
     },
     {
       title: "Suscripción Mensual VIP",
-      price: "$299.000/mes",
+      price: "$400.000/mes",
       description: "Externaliza casi toda la producción de contenido con calidad superior.",
       features: [
         { label: "15 Piezas Totales / mes", included: true },
@@ -100,7 +100,7 @@ export default function DisenoRecurrente() {
     },
     {
       title: "Suscripción Anual VIP",
-      price: "$2,999.000/año",
+      price: "$4.000.000/año",
       description: "El servicio de contenido definitivo para una marca que busca destacar.",
       features: [
         { label: "15 Piezas Totales / mes", included: true },

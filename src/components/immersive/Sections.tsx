@@ -6,6 +6,15 @@ import { SERVICES_DATA, formatCurrency, type ServiceCategory } from "@/data/serv
 
 const WHATSAPP = "https://wa.me/56930973700?text=";
 
+// Subpágina de detalle por categoría (las que no tienen, van al catálogo)
+const CATEGORY_DETAIL: Record<string, string> = {
+  landing: "/servicios/starter-packs",
+  website: "/servicios/sitio-web-escalable",
+  design: "/servicios/diseno-recurrente",
+  social: "/servicios/utilidades-digitales",
+  inmersive: "/servicios/ingenieria-ux-ui-web-inmersiva",
+};
+
 function wa(text: string) {
   return WHATSAPP + encodeURIComponent(text);
 }
@@ -205,7 +214,7 @@ export default function Sections() {
           {SERVICES_DATA.map((cat) => (
             <Link
               key={cat.id}
-              href="/servicios"
+              href={CATEGORY_DETAIL[cat.id] ?? "/servicios"}
               className="glass rounded-2xl p-6 group hover:border-emerald-500/40 transition-colors"
               data-reveal
             >

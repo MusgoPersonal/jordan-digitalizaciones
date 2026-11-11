@@ -4,7 +4,7 @@ export default function StarterPacks() {
   const basicServices = [
     {
       title: "Compra Puntual",
-      price: "$59.000",
+      price: "$150.000",
       description: "Lanza tu idea o negocio de forma rápida y profesional con pago único.",
       features: [
         { label: "Landing Page BASIC STATIC ONE PAGE", included: true },
@@ -16,7 +16,7 @@ export default function StarterPacks() {
     },
     {
       title: "Suscripción Mensual",
-      price: "$39.000/mes",
+      price: "$99.000/mes",
       description: "Flexibilidad y soporte continuo para tu emprendimiento digital.",
       features: [
         { label: "Landing Page BASIC STATIC ONE PAGE", included: true },
@@ -30,7 +30,7 @@ export default function StarterPacks() {
     },
     {
       title: "Suscripción Anual",
-      price: "$500.000/año",
+      price: "$990.000/año",
       description: "Ahorra y asegura el éxito digital de tu negocio por un año.",
       features: [
         { label: "Landing Page BASIC STATIC ONE PAGE", included: true },
@@ -46,7 +46,7 @@ export default function StarterPacks() {
   const proServices = [
     {
       title: "Pago Único PRO",
-      price: "$249.000",
+      price: "$350.000",
       description: "Configuración profesional para elevar tu imagen y captar leads.",
       features: [
         { label: "Landing Page BASIC STATIC ONE PAGE", included: true },
@@ -58,7 +58,7 @@ export default function StarterPacks() {
     },
     {
       title: "Suscripción Mensual PRO",
-      price: "$69.000/mes",
+      price: "$129.000/mes",
       description: "Solución completa para crecimiento y gestión de leads con pago mensual.",
       features: [
         { label: "Landing Page BASIC STATIC ONE PAGE", included: true },
@@ -72,7 +72,7 @@ export default function StarterPacks() {
     },
     {
       title: "Suscripción Anual PRO",
-      price: "$699.000/año",
+      price: "$1.299.000/año",
       description: "Maximiza tu inversión y crecimiento anual con todas las ventajas Pro.",
       features: [
         { label: "Landing Page BASIC STATIC ONE PAGE", included: true },
@@ -100,7 +100,7 @@ export default function StarterPacks() {
     },
     {
       title: "Suscripción Mensual PREMIUM",
-      price: "$99.000/mes",
+      price: "$159.000/mes",
       description: "El control total y la automatización que tu negocio necesita cada mes.",
       features: [
         { label: "Branding Completo (Voz, Tono, Diseño Avanzado)", included: true },
@@ -114,7 +114,7 @@ export default function StarterPacks() {
     },
     {
       title: "Suscripción Anual PREMIUM",
-      price: "$999.000/año",
+      price: "$1.599.000/año",
       description: "Asegura el máximo rendimiento y automatización de tu negocio por un año, ahorrando.",
       features: [
         { label: "Branding Completo (Voz, Tono, Diseño Avanzado)", included: true },
@@ -156,7 +156,7 @@ export default function StarterPacks() {
     },
     {
       title: "Suscripción Anual VIP",
-      price: "$1,999.000/año",
+      price: "$1.999.000/año",
       description: "La experiencia VIP completa por un año, con beneficios exclusivos y ahorro.",
       features: [
         { label: "VPS DEDICADO Incluido", included: true },
@@ -247,13 +247,13 @@ export default function StarterPacks() {
             <h3 className="text-2xl font-bold text-verdigris mb-4">2. Mantenimiento y Soporte</h3>
             <ul className="list-disc list-inside text-text-warm space-y-2">
               <li>
-                <strong className="text-champagne">BÁSICO ($39/mes):</strong> Mantenimiento Básico (Monitoreo 24/7, Manejo de Errores y Actualizaciones de herramientas). No incluye soporte para cambios de contenido o diseño (solo técnicos).
+                <strong className="text-champagne">BÁSICO ($99/mes):</strong> Mantenimiento Básico (Monitoreo 24/7, Manejo de Errores y Actualizaciones de herramientas). No incluye soporte para cambios de contenido o diseño (solo técnicos).
               </li>
               <li>
-                <strong className="text-champagne">PRO ($69/mes):</strong> Todo lo anterior + Reporte de Leads Mensual. Incluye consultas limitadas sobre el rendimiento de la captación de leads.
+                <strong className="text-champagne">PRO ($129/mes):</strong> Todo lo anterior + Reporte de Leads Mensual. Incluye consultas limitadas sobre el rendimiento de la captación de leads.
               </li>
               <li>
-                <strong className="text-champagne">PREMIUM ($99/mes):</strong> Mantenimiento Avanzado (WPO, Analítica y Pixel de Meta). El mantenimiento asegura la funcionalidad de las herramientas avanzadas y la velocidad de carga.
+                <strong className="text-champagne">PREMIUM ($159/mes):</strong> Mantenimiento Avanzado (WPO, Analítica y Pixel de Meta). El mantenimiento asegura la funcionalidad de las herramientas avanzadas y la velocidad de carga.
               </li>
               <li>
                 <strong className="text-champagne">VIP EXPERIENCE ($199/mes):</strong> Mantenimiento y Soporte DEDICADO para el VPS y las herramientas (Odoo, n8n, etc.). Soporte Prioritario 24h. Se enfoca en garantizar el uptime y la correcta ejecución de las automatizaciones críticas.
