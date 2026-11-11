@@ -30,11 +30,20 @@ export const metadata: Metadata = {
     description: "Landing Pages, Sitios Web, E-Commerce, UX/UI Inmersivo y Automatización para PYMEs. Soluciones que venden.",
     type: "website",
     locale: "es_CL",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Jordan Digitalizaciones — La Ruta Hacia tu Éxito Digital",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Jordan Digitalizaciones",
     description: "Landing Pages, Sitios Web, E-Commerce, UX/UI Inmersivo y Automatización para PYMEs.",
+    images: ["/og-image.png"],
   },
 };
 
