@@ -47,6 +47,9 @@ export default function ServiciosPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const activeData = SERVICES_DATA.find((c) => c.id === activeCategory)!;
+  const activeIsQuote = activeData.levels.every(
+    (l) => l.prices.unique === 0 && l.prices.monthly === 0 && l.prices.annual === 0,
+  );
 
   const selectService = (categoryId: string, levelIndex: number, paymentType: "unique" | "monthly" | "annual") => {
     const cat = SERVICES_DATA.find((c) => c.id === categoryId)!;
@@ -133,6 +136,23 @@ export default function ServiciosPage() {
             >
               Ver página completa de {activeData.title} →
             </Link>
+          </div>
+        )}
+
+        {activeIsQuote && (
+          <div className="mb-6 bg-lacquer-raised border border-kinpaku/30 rounded-lg p-5 text-center animate-fadeIn">
+            <p className="text-sm text-text-warm">
+              <strong className="text-champagne">{activeData.title}</strong> se cotiza a medida según el alcance del proyecto.
+              Revisa los precios por ítem en la página de detalle o escríbenos para una propuesta exacta.
+            </p>
+            <a
+              href={`https://wa.me/56930973700?text=${encodeURIComponent(`Hola Jordan, quiero cotizar ${activeData.title}.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block bg-verdigris text-lacquer-deep hover:opacity-90 font-bold py-2.5 px-6 rounded-lg transition-opacity"
+            >
+              Cotizar por WhatsApp
+            </a>
           </div>
         )}
 

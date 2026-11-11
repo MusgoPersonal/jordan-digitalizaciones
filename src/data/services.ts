@@ -131,17 +131,17 @@ export const SERVICES_DATA: ServiceCategory[] = [
     levels: [
       {
         name: "Nivel 1: Diseño Psicológico",
-        prices: { unique: 799000, monthly: 0, annual: 0 },
+        prices: { unique: 0, monthly: 0, annual: 0 },
         features: ["Auditoría UX/Neuromarketing (5 puntos de fricción)", "Codificación de 5 microinteracciones clave (hover sutil, feedback de clicks)", "Efecto de partículas en sección clave de la página", "Documentación técnica básica incluida"]
       },
       {
         name: "Nivel 2: Scroll Inmersivo",
-        prices: { unique: 1200000, monthly: 150000, annual: 0 },
+        prices: { unique: 0, monthly: 0, annual: 0 },
         features: ["Efecto Parallax Scroll avanzado en hasta 3 secciones", "Integración de animación compleja vectorial (Lottie/JSON) en Hero", "Diseño de cursor personalizado animado", "WPO Nivel 3 (Optimización de carga para activos multimedia)", "Mantenimiento y QA de compatibilidad opcional ($150.000/mes)"]
       },
       {
         name: "Nivel 3: Experiencia 3D y AR",
-        prices: { unique: 3500000, monthly: 150000, annual: 0 },
+        prices: { unique: 0, monthly: 0, annual: 0 },
         features: ["Modelado e integración de un objeto 3D interactivo simple (Three.js)", "Generación de entorno 3D simple interactivo de fondo", "Integración de filtro de Realidad Aumentada (AR) para Instagram/Meta", "Documentación detallada de API, librerías y optimización multimedia"]
       }
     ]
@@ -178,17 +178,17 @@ export const SERVICES_DATA: ServiceCategory[] = [
     levels: [
       {
         name: "Nivel 1: Activación Básica",
-        prices: { unique: 60000, monthly: 0, annual: 0 },
+        prices: { unique: 0, monthly: 0, annual: 0 },
         features: ["Diseño de firma de email profesional (HTML/Imagen)", "Configuración y optimización de ficha Google My Business / Maps", "Creación de Landing Page de enlaces (estilo Linktree, hasta 7 links)"]
       },
       {
         name: "Nivel 2: Herramientas Confianza",
-        prices: { unique: 120000, monthly: 0, annual: 0 },
+        prices: { unique: 0, monthly: 0, annual: 0 },
         features: ["Instalación de píxeles clave (Meta Pixel + Google Analytics 4)", "Widget flotante de WhatsApp con mensajes preconfigurados", "Integración de widget de reviews/testimonios externos (Google/Trustpilot)"]
       },
       {
         name: "Nivel 3: Automatización Básica",
-        prices: { unique: 150000, monthly: 0, annual: 0 },
+        prices: { unique: 0, monthly: 0, annual: 0 },
         features: ["Configuración de botón de pago rápido directo (Stripe/PayPal/Webpay)", "Flujo de email marketing automatizado básico (bienvenida + recordatorio)", "Creación de 10 plantillas de respuesta rápida para CRM/Chatwoot"]
       }
     ]
