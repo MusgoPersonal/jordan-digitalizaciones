@@ -78,7 +78,8 @@
   border-radius: 4px;
 }
 
-html {
+/* Smooth nativo solo fuera de la home inmersiva (Lenis controla el scroll ahí). */
+html:not(:has([data-immersive])) {
   scroll-behavior: smooth;
 }
 
