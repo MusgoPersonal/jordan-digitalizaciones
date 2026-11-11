@@ -21,12 +21,12 @@ export const SERVICES_DATA: ServiceCategory[] = [
     levels: [
       {
         name: "Nivel Básico (Starter Pack)",
-        prices: { unique: 59000, monthly: 39000, annual: 500000 },
+        prices: { unique: 150000, monthly: 99000, annual: 990000 },
         features: ["Landing page básica (Static One Page)", "Dominio gratis por 1 año y 1 correo (solo en suscripción)", "Branding básico (colores y tipografía)", "Mantenimiento 24/7 y monitoreo (solo en suscripción)"]
       },
       {
         name: "Nivel Pro (Plan Profesional)",
-        prices: { unique: 249000, monthly: 69000, annual: 699000 },
+        prices: { unique: 350000, monthly: 129000, annual: 1299000 },
         features: ["Landing page básica (Static One Page)", "Logo vectorizado + Mockups y editables", "Integración de leads (Pop-up y Email Marketing)", "Dominio y Mantenimiento todo incluido (suscripción)", "Optimización SEO inicial", "Workshop estratégico anual (2h) (solo en suscripción anual)"]
       },
       {
@@ -105,17 +105,17 @@ export const SERVICES_DATA: ServiceCategory[] = [
     levels: [
       {
         name: "Nivel Básico (Plan Emprendedor)",
-        prices: { unique: 0, monthly: 99000, annual: 990000 },
+        prices: { unique: 0, monthly: 150000, annual: 1500000 },
         features: ["12 publicaciones estáticas o carruseles al mes", "Planificación de contenido mensual", "Copywriting persuasivo y hashtags optimizados", "Optimización visual de perfiles (Instagram/Facebook)", "Reporte básico de métricas a fin de mes", "Creación y optimización de perfiles", "Programación de contenido"]
       },
       {
         name: "Nivel Pro (Plan Crecimiento)",
-        prices: { unique: 0, monthly: 189000, annual: 1890000 },
+        prices: { unique: 0, monthly: 280000, annual: 2800000 },
         features: ["20 publicaciones totales al mes (incluye 4 Reels/videos cortos)", "Gestión e interacción de comentarios y mensajes (Lunes a Viernes)", "1 campaña publicitaria básica al mes (pauta no incluida)", "Monitoreo de competencia mensual", "Reporte detallado de crecimiento y conversiones"]
       },
       {
         name: "Nivel Premium (Plan Liderazgo)",
-        prices: { unique: 0, monthly: 299000, annual: 2990000 },
+        prices: { unique: 0, monthly: 400000, annual: 4000000 },
         features: ["Publicación diaria o 30 piezas al mes (incluye 8 Reels/videos)", "Gestión e interacción de comunidad 24/7 (Soporte de guardia)", "Configuración e inversión estratégica en Meta/Google Ads", "Sesión quincenal de brainstorming de contenido (30 min)", "Reporte analítico estratégico profundo de retorno de inversión"]
       }
     ]
@@ -151,17 +151,17 @@ export const SERVICES_DATA: ServiceCategory[] = [
     levels: [
       {
         name: "Nivel 1: Kit de Inicio",
-        prices: { unique: 49000, monthly: 79000, annual: 799000 },
+        prices: { unique: 79000, monthly: 150000, annual: 1500000 },
         features: ["4 piezas gráficas estáticas mensuales (posts, flyers o banners)", "1 ronda de revisiones por diseño", "Acceso a entregables en JPG y PNG", "Se utiliza el logotipo y paleta de colores del cliente"]
       },
       {
         name: "Nivel 2: Pack Profesional",
-        prices: { unique: 99000, monthly: 149000, annual: 1499000 },
+        prices: { unique: 149000, monthly: 280000, annual: 2800000 },
         features: ["8 piezas totales al mes (carruseles, posts estáticos o animaciones sencillas)", "Consistencia de marca PRO (tipografías y diseño adaptado)", "Acceso a banco de imágenes premium limitado", "Entregables optimizados para múltiples plataformas"]
       },
       {
         name: "Nivel 3: Estudio Contenido VIP",
-        prices: { unique: 199000, monthly: 299000, annual: 2999000 },
+        prices: { unique: 299000, monthly: 400000, annual: 4000000 },
         features: ["15 piezas totales al mes (carruseles, reels, videos cortos, mockups)", "Soporte prioritario y brainstorming quincenal de contenido (30 min)", "Creación de mockups de productos bajo demanda", "Consistencia de marca y diseño de identidad de contenido avanzado"]
       }
     ]

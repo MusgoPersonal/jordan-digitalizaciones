@@ -12,33 +12,62 @@ import * as THREE from "three";
 import Orb from "./Orb";
 import AmbientParticles from "./AmbientParticles";
 import DataRings from "./DataRings";
-import { sceneState } from "./state";
+import Worlds from "./Worlds";
+import { sceneState, lerp } from "./state";
+
+// Poses de cámara por sección (posición + hacia dónde mira).
+// La cámara "vuela" entre estos mundos interpolando.
+const POSES: { pos: [number, number, number]; tgt: [number, number, number] }[] = [
+  { pos: [0, 0.4, 9], tgt: [0, 0, 0] }, // 0 hero — oscuridad, orbe lejano
+  { pos: [2, 1.2, 6.5], tgt: [0, 0, 0] }, // 1 arranque — se enciende
+  { pos: [0, 0, 0.3], tgt: [0, 0, -2] }, // 2 interior — dentro del orbe
+  { pos: [0, 1.6, 5.5], tgt: [0, 0, 0] }, // 3 catálogo — nodos alrededor
+  { pos: [4.5, 0.6, 4.5], tgt: [0, 0, 0] }, // 4 stack — orbitando anillos
+  { pos: [-3.5, 1, 4.5], tgt: [0, 0, 0] }, // 5 experiencia — amplio
+  { pos: [0, 0.9, 4.8], tgt: [0, 0.3, 0] }, // 6 datos — frente al holograma
+  { pos: [0, 1, 7], tgt: [0, 0, 0] }, // 7 valores — calma
+  { pos: [0, 0, 2.5], tgt: [0, 0, -4] }, // 8 stats — entrada del túnel
+  { pos: [0, 0, 2.2], tgt: [0, 0, 0] }, // 9 conversión — panel cristal
+  { pos: [0, 0.4, 8], tgt: [0, 0, 0] }, // 10 cta — regreso a negro
+];
 
 function CameraRig() {
   const { camera } = useThree();
 
-  const camCurve = useMemo(
-    () =>
-      new THREE.CatmullRomCurve3([
-        new THREE.Vector3(0, 0.4, 9),
-        new THREE.Vector3(2, 1.4, 7),
-        new THREE.Vector3(4, 0.6, 4.8),
-        new THREE.Vector3(3.2, -1.2, 2.6),
-        new THREE.Vector3(0, -0.4, 1.1),
-        new THREE.Vector3(-3.2, 0.6, 3.2),
-        new THREE.Vector3(-3, 1.6, 6),
-        new THREE.Vector3(-0.8, 0.9, 7.2),
-        new THREE.Vector3(0, 0.4, 8),
-      ]),
-    [],
-  );
+  const pos = useMemo(() => new THREE.Vector3(), []);
+  const tgt = useMemo(() => new THREE.Vector3(), []);
 
   useFrame(() => {
-    const p = Math.min(0.999, Math.max(0.001, sceneState.progress));
-    const pos = camCurve.getPointAt(p);
+    // Sección continua: section + sectionProgress (0..10)
+    let s = sceneState.section + sceneState.sectionProgress;
+    s = Math.min(s, POSES.length - 1);
+
+    const i = Math.floor(s);
+    const f = s - i;
+    const a = POSES[Math.min(i, POSES.length - 1)];
+    const b = POSES[Math.min(i + 1, POSES.length - 1)];
+
+    pos.set(
+      lerp(a.pos[0], b.pos[0], f),
+      lerp(a.pos[1], b.pos[1], f),
+      lerp(a.pos[2], b.pos[2], f),
+    );
+    tgt.set(
+      lerp(a.tgt[0], b.tgt[0], f),
+      lerp(a.tgt[1], b.tgt[1], f),
+      lerp(a.tgt[2], b.tgt[2], f),
+    );
+
+    // Viaje por el túnel en la sección de estadísticas
+    if (sceneState.section === 8) {
+      const travel = sceneState.sectionProgress * 8;
+      pos.z -= travel;
+      tgt.z -= travel;
+    }
+
     const m = sceneState.isMobile ? 1.35 : 1;
     camera.position.set(pos.x * m, pos.y * m, pos.z * m);
-    camera.lookAt(0, 0, 0);
+    camera.lookAt(tgt);
   });
 
   return null;
@@ -64,6 +93,7 @@ export default function Scene() {
 
       <CameraRig />
       <Orb />
+      <Worlds />
       <DataRings />
       <AmbientParticles count={particleCount} />
 

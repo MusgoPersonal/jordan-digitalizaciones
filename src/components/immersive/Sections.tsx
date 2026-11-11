@@ -114,7 +114,7 @@ export default function Sections() {
   return (
     <div className="relative z-10 text-white">
       {/* 1. HERO */}
-      <section data-hero className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      <section data-hero data-section="0" className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center">
         <p className="text-xs md:text-sm tracking-[0.4em] uppercase text-emerald-400/80 mb-6" data-reveal>
           Agencia digital · PYMEs
         </p>
@@ -154,7 +154,7 @@ export default function Sections() {
       </section>
 
       {/* 2. ARRANQUE */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-6">
+      <section data-section="1" className="min-h-screen flex flex-col items-center justify-center px-6">
         <div className="max-w-4xl text-center">
           <h2 className="font-display text-3xl md:text-5xl font-extrabold" data-reveal>
             Lo que hago
@@ -180,7 +180,7 @@ export default function Sections() {
       </section>
 
       {/* 3. INTERIOR */}
-      <section className="min-h-screen flex items-center justify-center px-6">
+      <section data-section="2" className="min-h-screen flex items-center justify-center px-6">
         <div className="max-w-3xl text-center">
           <h2 className="font-display text-3xl md:text-5xl font-extrabold" data-reveal>
             Un ecosistema conectado
@@ -194,7 +194,7 @@ export default function Sections() {
       </section>
 
       {/* 4. CATÁLOGO */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
+      <section data-section="3" className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
         <h2 className="font-display text-3xl md:text-5xl font-extrabold text-center" data-reveal>
           7 categorías de servicio
         </h2>
@@ -232,7 +232,7 @@ export default function Sections() {
       </section>
 
       {/* 5. DETALLE TÉCNICO (HUD) */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
+      <section data-section="4" className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
         <h2 className="font-display text-3xl md:text-5xl font-extrabold text-center" data-reveal>
           Stack técnico
         </h2>
@@ -254,7 +254,7 @@ export default function Sections() {
       </section>
 
       {/* 6. EXPERIENCIA (beneficios) */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
+      <section data-section="5" className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
         <h2 className="font-display text-3xl md:text-5xl font-extrabold text-center" data-reveal>
           La experiencia
         </h2>
@@ -269,7 +269,7 @@ export default function Sections() {
       </section>
 
       {/* 7. DATOS VIVOS */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
+      <section data-section="6" className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
         <h2 className="font-display text-3xl md:text-5xl font-extrabold text-center" data-reveal>
           Datos vivos
         </h2>
@@ -282,7 +282,7 @@ export default function Sections() {
       </section>
 
       {/* 8. VALORES */}
-      <section className="min-h-screen flex items-center justify-center px-6">
+      <section data-section="7" className="min-h-screen flex items-center justify-center px-6">
         <div className="max-w-3xl text-center">
           <h2 className="font-display text-3xl md:text-5xl font-extrabold" data-reveal>
             Calma y misión
@@ -303,7 +303,7 @@ export default function Sections() {
       </section>
 
       {/* 9. ESTADÍSTICAS */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
+      <section data-section="8" className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
         <h2 className="font-display text-3xl md:text-5xl font-extrabold text-center" data-reveal>
           La ruta en números
         </h2>
@@ -316,7 +316,7 @@ export default function Sections() {
       </section>
 
       {/* 10. CONVERSIÓN */}
-      <section className="min-h-screen flex items-center justify-center px-6 py-24">
+      <section data-section="9" className="min-h-screen flex items-center justify-center px-6 py-24">
         <div className="glass-strong rounded-3xl p-8 md:p-14 max-w-3xl w-full text-center" data-reveal>
           <h2 className="font-display text-3xl md:text-5xl font-extrabold" data-reveal>
             ¿Listo para digitalizar tu negocio?
@@ -344,7 +344,7 @@ export default function Sections() {
       </section>
 
       {/* 11. CTA FINAL */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      <section data-section="10" className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
         <p className="text-xs tracking-[0.4em] uppercase text-emerald-400/80" data-reveal>
           Jordan Digitalizaciones
         </p>

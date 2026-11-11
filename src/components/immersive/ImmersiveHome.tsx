@@ -20,6 +20,29 @@ export default function ImmersiveHome() {
     let lenis: Lenis | null = null;
     const cleanups: (() => void)[] = [];
 
+    // Rastrea la sección activa para que la escena 3D sepa en qué "mundo" está.
+    document.querySelectorAll("[data-section]").forEach((sec) => {
+      const idx = Number((sec as HTMLElement).dataset.section);
+      const st = ScrollTrigger.create({
+        trigger: sec,
+        start: "top center",
+        end: "bottom center",
+        onToggle: (self) => {
+          if (self.isActive) {
+            sceneState.section = idx;
+            sceneState.sectionProgress = self.progress;
+          }
+        },
+        onUpdate: (self) => {
+          if (self.isActive) {
+            sceneState.section = idx;
+            sceneState.sectionProgress = self.progress;
+          }
+        },
+      });
+      cleanups.push(() => st.kill());
+    });
+
     if (!reduced) {
       lenis = new Lenis({ duration: 1.2, smoothWheel: true });
       lenis.on("scroll", ScrollTrigger.update);

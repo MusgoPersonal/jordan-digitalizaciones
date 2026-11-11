@@ -2,7 +2,11 @@
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { sceneState, smoothstep } from "./state";
+import { sceneState, smoothstep, damp } from "./state";
+
+// Presencia del orbe por sección: se desvanece cuando la cámara entra en
+// otros mundos y reaparece al volver (conversión / cta).
+const ORB_PRESENCE = [1, 1, 0.35, 0.2, 0.35, 0.3, 0.35, 0.45, 0.05, 0.55, 0.85];
 
 const EMERALD = "#059669";
 const EMERALD_SOFT = "#34d399";
@@ -60,6 +64,7 @@ export default function Orb() {
   const glowRef = useRef<THREE.Sprite>(null);
 
   const nodeCount = sceneState.isMobile ? 140 : 300;
+  const presence = useRef(1);
 
   const { nodeGeo, lineGeo } = useMemo(() => {
     const pts = fibonacciSphere(nodeCount, 1.16);
@@ -89,40 +94,44 @@ export default function Orb() {
   const nodeTexture = useMemo(() => makeNodeTexture(), []);
   const glowTexture = useMemo(() => makeGlowTexture(), []);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     const t = state.clock.elapsedTime;
     const p = sceneState.progress;
     const spin = t * 0.06 + p * 2.4;
 
+    const presTarget = ORB_PRESENCE[sceneState.section] ?? 1;
+    presence.current = damp(presence.current, presTarget, 4, delta);
+    const pr = presence.current;
+
     if (group.current) {
       group.current.rotation.y = spin;
       group.current.rotation.x = Math.sin(t * 0.14) * 0.14 + p * 0.25;
-      const s = 1 + smoothstep(0.12, 0.4, p) * 0.08 + Math.sin(t * 0.8) * 0.01;
+      const s = (1 + smoothstep(0.12, 0.4, p) * 0.08 + Math.sin(t * 0.8) * 0.01) * (0.5 + 0.5 * pr);
       group.current.scale.setScalar(s);
     }
 
-    const glow = smoothstep(0.1, 0.4, p);
-    const interior = smoothstep(0.34, 0.5, p);
+    const glow = smoothstep(0.1, 0.4, p) * pr;
+    const interior = smoothstep(0.34, 0.5, p) * pr;
 
     if (coreMat.current) {
-      coreMat.current.emissiveIntensity = 0.35 + glow * 2.4 + interior * 0.8;
+      coreMat.current.emissiveIntensity = (0.35 + glow * 2.4 + interior * 0.8) * (0.3 + 0.7 * pr);
     }
     if (shellRef.current) {
       const m = shellRef.current.material as THREE.MeshBasicMaterial;
-      m.opacity = 0.08 + glow * 0.22;
+      m.opacity = (0.08 + glow * 0.22) * pr;
     }
     if (nodesRef.current) {
       const m = nodesRef.current.material as THREE.PointsMaterial;
-      m.opacity = 0.45 + glow * 0.55;
-      m.size = 0.055 + glow * 0.02 + Math.sin(t * 2) * 0.004;
+      m.opacity = (0.45 + glow * 0.55) * pr;
+      m.size = (0.055 + glow * 0.02 + Math.sin(t * 2) * 0.004) * (0.4 + 0.6 * pr);
     }
     if (linesRef.current) {
       const m = linesRef.current.material as THREE.LineBasicMaterial;
-      m.opacity = 0.1 + glow * 0.3;
+      m.opacity = (0.1 + glow * 0.3) * pr;
     }
     if (glowRef.current) {
       const m = glowRef.current.material as THREE.SpriteMaterial;
-      m.opacity = 0.3 + glow * 0.4 + interior * 0.2;
+      m.opacity = (0.3 + glow * 0.4 + interior * 0.2) * pr;
       const gs = 3.4 + glow * 1.2 + Math.sin(t * 1.2) * 0.2;
       glowRef.current.scale.set(gs, gs, 1);
     }
