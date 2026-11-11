@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import WhatsAppButton from "@/components/WhatsAppButton"; // Import the new component
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jordan-digitalizaciones.pages.dev"),
   title: {
     default: "Jordan Digitalizaciones",
     template: "%s | Jordan Digitalizaciones",
