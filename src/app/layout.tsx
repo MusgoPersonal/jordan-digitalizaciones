@@ -1,7 +1,21 @@
 import type { Metadata } from "next";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/Layout";
 import WhatsAppButton from "@/components/WhatsAppButton"; // Import the new component
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jordan-digitalizaciones.pages.dev"),
@@ -30,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" className={`${inter.variable} ${jakarta.variable}`}>
       <body suppressHydrationWarning={true} className="font-body">
         <Layout>
           {children}
