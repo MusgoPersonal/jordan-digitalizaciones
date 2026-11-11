@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import Sections from "./Sections";
+import SectionNav from "./SectionNav";
 import { sceneState } from "./state";
 
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
@@ -109,6 +110,7 @@ export default function ImmersiveHome() {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Scene />
       </div>
+      <SectionNav />
       <Sections />
     </div>
   );
