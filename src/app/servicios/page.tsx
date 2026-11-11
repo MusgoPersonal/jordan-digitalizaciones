@@ -197,16 +197,16 @@ export default function ServiciosPage() {
           <h2 className="text-2xl font-bold mb-4">Solicitar Cotización</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm text-text-muted mb-1">Nombre o Empresa</label>
-              <input type="text" value={formName} onChange={(e) => setFormName(e.target.value)} required className="w-full px-4 py-3 rounded-lg bg-lacquer border border-gold-hairline text-champagne focus:outline-none focus:border-kinpaku" placeholder="Ej. Juan Pérez / PYME Digital" />
+              <label htmlFor="cot-name" className="block text-sm text-text-muted mb-1">Nombre o Empresa</label>
+              <input id="cot-name" type="text" value={formName} onChange={(e) => setFormName(e.target.value)} required className="w-full px-4 py-3 rounded-lg bg-lacquer border border-gold-hairline text-champagne focus:outline-none focus:border-kinpaku" placeholder="Ej. Juan Pérez / PYME Digital" />
             </div>
             <div>
-              <label className="block text-sm text-text-muted mb-1">Correo Electrónico</label>
-              <input type="email" value={formEmail} onChange={(e) => setFormEmail(e.target.value)} required className="w-full px-4 py-3 rounded-lg bg-lacquer border border-gold-hairline text-champagne focus:outline-none focus:border-kinpaku" placeholder="juan@empresa.com" />
+              <label htmlFor="cot-email" className="block text-sm text-text-muted mb-1">Correo Electrónico</label>
+              <input id="cot-email" type="email" value={formEmail} onChange={(e) => setFormEmail(e.target.value)} required className="w-full px-4 py-3 rounded-lg bg-lacquer border border-gold-hairline text-champagne focus:outline-none focus:border-kinpaku" placeholder="juan@empresa.com" />
             </div>
             <div>
-              <label className="block text-sm text-text-muted mb-1">Detalles del Proyecto</label>
-              <textarea value={formMessage} onChange={(e) => setFormMessage(e.target.value)} required className="w-full px-4 py-3 rounded-lg bg-lacquer border border-gold-hairline text-champagne focus:outline-none focus:border-kinpaku h-24" placeholder="Cuéntanos más sobre lo que buscas..." />
+              <label htmlFor="cot-msg" className="block text-sm text-text-muted mb-1">Detalles del Proyecto</label>
+              <textarea id="cot-msg" value={formMessage} onChange={(e) => setFormMessage(e.target.value)} required className="w-full px-4 py-3 rounded-lg bg-lacquer border border-gold-hairline text-champagne focus:outline-none focus:border-kinpaku h-24" placeholder="Cuéntanos más sobre lo que buscas..." />
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <button type="submit" className="flex-1 bg-kinpaku text-lacquer-deep hover:opacity-90 font-bold py-3 px-6 rounded-lg transition-opacity">Enviar por WhatsApp</button>

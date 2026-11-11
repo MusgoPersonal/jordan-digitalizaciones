@@ -37,20 +37,28 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
           {/* DESKTOP NAV */}
           <ul className="hidden md:flex items-center gap-1">
-            {links.map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className={
-                    isHome
-                      ? "block px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-all font-medium text-sm"
-                      : "block px-4 py-2 rounded-lg text-text-warm hover:text-champagne hover:bg-kinpaku/10 transition-all font-medium text-sm"
-                  }
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+            {links.map(({ href, label }) => {
+              const active = pathname === href || (href !== "/" && pathname.startsWith(href));
+              return (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    aria-current={active ? "page" : undefined}
+                    className={
+                      active
+                        ? isHome
+                          ? "block px-4 py-2 rounded-lg text-white bg-white/10 font-semibold text-sm"
+                          : "block px-4 py-2 rounded-lg text-champagne bg-kinpaku/15 font-semibold text-sm"
+                        : isHome
+                          ? "block px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-all font-medium text-sm"
+                          : "block px-4 py-2 rounded-lg text-text-warm hover:text-champagne hover:bg-kinpaku/10 transition-all font-medium text-sm"
+                    }
+                  >
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* MOBILE HAMBURGER */}
@@ -81,21 +89,29 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             }`}
           >
             <ul className="flex flex-col gap-1">
-              {links.map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    onClick={() => setMenuOpen(false)}
-                    className={
-                      isHome
-                        ? "block px-4 py-3 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-all font-medium"
-                        : "block px-4 py-3 rounded-lg text-text-warm hover:text-champagne hover:bg-kinpaku/10 transition-all font-medium"
-                    }
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              {links.map(({ href, label }) => {
+                const active = pathname === href || (href !== "/" && pathname.startsWith(href));
+                return (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={() => setMenuOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={
+                        active
+                          ? isHome
+                            ? "block px-4 py-3 rounded-lg text-white bg-white/10 font-semibold"
+                            : "block px-4 py-3 rounded-lg text-champagne bg-kinpaku/15 font-semibold"
+                          : isHome
+                            ? "block px-4 py-3 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-all font-medium"
+                            : "block px-4 py-3 rounded-lg text-text-warm hover:text-champagne hover:bg-kinpaku/10 transition-all font-medium"
+                      }
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
             <div className={`mt-auto pt-4 ${isHome ? "border-t border-white/10" : "border-t border-gold-hairline"}`}>
               <a
