@@ -85,9 +85,14 @@ export default function ServiciosPage() {
     <div className="min-h-screen bg-lacquer text-champagne">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-2 font-display">Catálogo de Servicios</h1>
-        <p className="text-lg text-text-warm text-center mb-8 max-w-4xl mx-auto">
+        <p className="text-lg text-text-warm text-center mb-4 max-w-4xl mx-auto">
           Explora todas nuestras soluciones digitales. Selecciona los módulos que tu negocio necesita y arma tu presupuesto en tiempo real.
         </p>
+        <div className="text-center mb-8">
+          <Link href="/servicios/servicios-puntuales" className="text-sm font-semibold text-verdigris hover:text-kinpaku transition-colors">
+            ¿Necesitas algo puntual? Ver servicios sueltos →
+          </Link>
+        </div>
 
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           {SERVICES_DATA.map((cat) => (
