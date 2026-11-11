@@ -9,6 +9,8 @@ export interface ServiceCategory {
   title: string;
   subtitle: string;
   badge: string;
+  /** Precio "desde" real (ítem más barato) cuando es un menú a la carta. */
+  fromPrice?: number;
   levels: PriceLevel[];
 }
 
@@ -125,6 +127,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
     title: "Ingeniería UX/UI y Web Inmersiva",
     subtitle: "Efectos en 3D, scroll cinemático y neuromarketing",
     badge: "Innovación",
+    fromPrice: 350000,
     levels: [
       {
         name: "Nivel 1: Diseño Psicológico",
@@ -171,6 +174,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
     title: "Utilidad Digital y Pruebas Sociales",
     subtitle: "Instalación de utilidades clave para generar confianza y automatizar",
     badge: "Utilidad",
+    fromPrice: 45000,
     levels: [
       {
         name: "Nivel 1: Activación Básica",

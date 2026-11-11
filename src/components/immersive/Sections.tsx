@@ -20,6 +20,7 @@ function wa(text: string) {
 }
 
 function desdePrice(cat: ServiceCategory): string {
+  if (cat.fromPrice && cat.fromPrice > 0) return formatCurrency(cat.fromPrice);
   let min = Infinity;
   for (const lv of cat.levels) {
     for (const k of ["unique", "monthly", "annual"] as const) {
