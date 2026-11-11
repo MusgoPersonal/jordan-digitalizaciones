@@ -57,6 +57,7 @@ function makeGlowTexture() {
 
 export default function Orb() {
   const group = useRef<THREE.Group>(null);
+  const orbRings = useRef<THREE.Group>(null);
   const coreMat = useRef<THREE.MeshStandardMaterial>(null);
   const shellRef = useRef<THREE.Mesh>(null);
   const nodesRef = useRef<THREE.Points>(null);
@@ -135,13 +136,21 @@ export default function Orb() {
       const gs = 3.4 + glow * 1.2 + Math.sin(t * 1.2) * 0.2;
       glowRef.current.scale.set(gs, gs, 1);
     }
+    if (orbRings.current) {
+      orbRings.current.rotation.x = 0.5 + Math.sin(t * 0.2) * 0.1;
+      orbRings.current.rotation.z = t * 0.15;
+      orbRings.current.children.forEach((c) => {
+        const m = (c as THREE.Mesh).material as THREE.MeshBasicMaterial;
+        if (m) m.opacity = (0.12 + glow * 0.28) * pr;
+      });
+    }
   });
 
   return (
     <group ref={group}>
-      {/* Carcasa wireframe exterior */}
+      {/* Carcasa wireframe exterior (globo) */}
       <mesh ref={shellRef}>
-        <icosahedronGeometry args={[1.34, 1]} />
+        <sphereGeometry args={[1.34, 28, 18]} />
         <meshBasicMaterial
           color={EMERALD}
           wireframe
@@ -151,6 +160,30 @@ export default function Orb() {
           depthWrite={false}
         />
       </mesh>
+
+      {/* Anillos orbitales finos */}
+      <group ref={orbRings}>
+        <mesh rotation={[0, 0, 0.4]}>
+          <torusGeometry args={[1.72, 0.006, 8, 160]} />
+          <meshBasicMaterial
+            color={EMERALD_SOFT}
+            transparent
+            opacity={0.12}
+            blending={THREE.AdditiveBlending}
+            depthWrite={false}
+          />
+        </mesh>
+        <mesh rotation={[0.6, 0.9, 0]}>
+          <torusGeometry args={[1.95, 0.005, 8, 160]} />
+          <meshBasicMaterial
+            color="#22d3ee"
+            transparent
+            opacity={0.12}
+            blending={THREE.AdditiveBlending}
+            depthWrite={false}
+          />
+        </mesh>
+      </group>
 
       {/* Núcleo sólido */}
       <mesh>
