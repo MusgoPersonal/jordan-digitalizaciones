@@ -12,6 +12,22 @@ const CATEGORY_DETAIL: Record<string, string> = {
   inmersive: "/servicios/ingenieria-ux-ui-web-inmersiva",
 };
 
+const PROCESO = [
+  { n: "01", t: "Diagnóstico gratis", d: "Analizo tu presencia digital (web, Instagram, Google) y te entrego 3 mejoras concretas, sin costo." },
+  { n: "02", t: "Propuesta y cotización", d: "Te propongo un plan claro con precio y plazos. Sin letra chica." },
+  { n: "03", t: "Diseño y desarrollo", d: "Trabajamos por etapas con aprobaciones: ves avances reales, no sorpresas." },
+  { n: "04", t: "Entrega y acompañamiento", d: "Publicamos, te capacito y quedas con soporte y mantenimiento." },
+];
+
+const FAQS = [
+  { q: "¿Cuánto demora un proyecto?", a: "Depende del alcance: una landing page ronda 1–2 semanas, un sitio web 3–5 semanas y un e-commerce 4–8 semanas. Te doy un plazo exacto en la cotización." },
+  { q: "¿Cómo se paga?", a: "Puedes elegir pago único o suscripción mensual/anual. En proyectos de pago único se abona una parte para iniciar y el resto contra entrega." },
+  { q: "¿El dominio y el hosting están incluidos?", a: "En suscripciones el dominio es gratis el primer año y el mantenimiento está incluido. En pago único el dominio lo gestiona el cliente." },
+  { q: "¿Puedo cancelar la suscripción?", a: "Sí. La mensual se cancela cuando quieras sin penalización; la anual cubre 12 meses y no tiene reembolso parcial." },
+  { q: "¿Trabajas con clientes fuera de Chile?", a: "Sí, trabajo 100% remoto y he colaborado con clientes en varios países. Coordinamos por videollamada y WhatsApp." },
+  { q: "¿Qué necesito para empezar?", a: "Tu objetivo y a quién te diriges, tu logo y materiales si los tienes, y accesos a las cuentas (dominio, redes, etc.). Si no tienes materiales, te asesoro." },
+];
+
 interface CartItem {
   categoryId: string;
   categoryTitle: string;
@@ -28,6 +44,7 @@ export default function ServiciosPage() {
   const [formName, setFormName] = useState("");
   const [formEmail, setFormEmail] = useState("");
   const [formMessage, setFormMessage] = useState("");
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const activeData = SERVICES_DATA.find((c) => c.id === activeCategory)!;
 
@@ -262,6 +279,62 @@ export default function ServiciosPage() {
             </div>
           )}
         </section>
+
+        {/* Cómo trabajo */}
+        <section className="mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-champagne mb-8 text-center font-display">Cómo trabajo</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {PROCESO.map((p) => (
+              <div key={p.n} className="bg-lacquer-raised rounded-lg border border-gold-hairline p-6">
+                <span className="font-mono text-2xl font-extrabold text-kinpaku/60">{p.n}</span>
+                <h3 className="mt-2 font-display text-lg font-bold text-champagne">{p.t}</h3>
+                <p className="mt-2 text-sm text-text-warm">{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-champagne mb-8 text-center font-display">Preguntas frecuentes</h2>
+          <div className="max-w-3xl mx-auto divide-y divide-gold-hairline border border-gold-hairline rounded-lg overflow-hidden">
+            {FAQS.map((f, i) => {
+              const open = openFaq === i;
+              return (
+                <div key={f.q} className="bg-lacquer-raised">
+                  <button
+                    onClick={() => setOpenFaq(open ? null : i)}
+                    aria-expanded={open}
+                    className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 font-semibold text-champagne hover:bg-kinpaku/5 transition-colors"
+                  >
+                    <span>{f.q}</span>
+                    <span className={`text-kinpaku transition-transform duration-300 ${open ? "rotate-45" : ""}`}>+</span>
+                  </button>
+                  <div className={`grid transition-all duration-300 ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+                    <div className="overflow-hidden">
+                      <p className="px-5 pb-4 text-sm text-text-warm">{f.a}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: FAQS.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            }),
+          }}
+        />
       </div>
     </div>
   );
