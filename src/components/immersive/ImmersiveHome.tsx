@@ -17,6 +17,16 @@ export default function ImmersiveHome() {
     sceneState.reducedMotion = reduced;
     sceneState.isMobile = window.innerWidth < 768;
 
+    // Parallax sutil con el mouse (solo en puntero fino y sin reduced-motion).
+    let onPointer: ((e: PointerEvent) => void) | null = null;
+    if (!reduced && !sceneState.isMobile) {
+      onPointer = (e: PointerEvent) => {
+        sceneState.pointerX = (e.clientX / window.innerWidth) * 2 - 1;
+        sceneState.pointerY = (e.clientY / window.innerHeight) * 2 - 1;
+      };
+      window.addEventListener("pointermove", onPointer, { passive: true });
+    }
+
     let lenis: Lenis | null = null;
     const cleanups: (() => void)[] = [];
 
@@ -88,6 +98,7 @@ export default function ImmersiveHome() {
 
     return () => {
       clearTimeout(refreshTimer);
+      if (onPointer) window.removeEventListener("pointermove", onPointer);
       cleanups.forEach((fn) => fn());
       sceneState.progress = 0;
     };

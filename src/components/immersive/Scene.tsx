@@ -66,7 +66,10 @@ function CameraRig() {
     }
 
     const m = sceneState.isMobile ? 1.35 : 1;
-    camera.position.set(pos.x * m, pos.y * m, pos.z * m);
+    // Parallax sutil con el mouse (desactivado en móvil/reduced-motion).
+    const px = sceneState.reducedMotion ? 0 : sceneState.pointerX * 0.45;
+    const py = sceneState.reducedMotion ? 0 : sceneState.pointerY * 0.3;
+    camera.position.set(pos.x * m + px, pos.y * m - py, pos.z * m);
     camera.lookAt(tgt);
   });
 

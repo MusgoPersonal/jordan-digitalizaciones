@@ -266,7 +266,7 @@ function GlassShards() {
       group.current.children.forEach((c, i) => {
         c.position.y += Math.sin(t * 0.7 + i) * 0.0018;
         const m = ((c as THREE.Mesh).material as THREE.MeshBasicMaterial);
-        if (m) m.opacity = fade.current * 0.12;
+        if (m) m.opacity = fade.current * 0.22;
       });
     }
   });

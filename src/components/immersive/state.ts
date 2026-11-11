@@ -8,6 +8,8 @@ export const sceneState = {
   isMobile: false,
   section: 0, // índice de la sección activa (0..10)
   sectionProgress: 0, // 0..1 progreso dentro de la sección activa
+  pointerX: 0, // -1..1 posición horizontal del mouse
+  pointerY: 0, // -1..1 posición vertical del mouse
 };
 
 // Índices de las secciones narrativas (deben coincidir con data-section).
