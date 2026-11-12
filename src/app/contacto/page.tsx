@@ -19,9 +19,9 @@ export default function Contacto() {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 bg-lacquer text-champagne min-h-[calc(100vh-80px)] flex items-center justify-center">
       <div className="max-w-md w-full bg-lacquer-raised rounded-lg border border-gold-hairline p-8 animate-slideUp">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-champagne mb-6 text-center font-display">Contáctanos</h1>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-champagne mb-6 text-center font-display">Hablemos</h1>
         <p className="text-text-warm text-center mb-8">
-          ¿Listo para digitalizar tu negocio? Escríbenos y empecemos juntos.
+          ¿Listo para llevar tu negocio a internet? Cuéntame tu idea y empecemos juntos.
         </p>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>

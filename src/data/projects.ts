@@ -59,12 +59,4 @@ export const PROJECTS: Project[] = [
     demo: "https://slither-clone-lime.vercel.app",
     accent: "rose",
   },
-  {
-    title: "@laputamadrejordan — Marca Personal",
-    description:
-      "Mi perfil personal donde comparto mi día a día como desarrollador, proyectos freelance y reflexiones sobre tecnología y emprendimiento en Santiago.",
-    services: ["Marca Personal", "Contenido"],
-    demo: "https://www.instagram.com/laputamadrejordan/",
-    accent: "emerald",
-  },
 ];

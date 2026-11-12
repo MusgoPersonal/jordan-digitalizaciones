@@ -173,7 +173,7 @@ export default function StarterPacks() {
     <div className="py-12 px-4 sm:px-6 lg:px-8 bg-lacquer text-champagne">
       <h1 className="text-3xl md:text-5xl font-extrabold text-champagne mb-4 text-center font-display">Emprendedor Digital Starter Packs</h1>
       <p className="text-lg text-text-warm text-center mb-10 max-w-4xl mx-auto">
-        Planes de suscripción y pago único diseñados para lanzar y hacer crecer tu negocio digital de manera rápida y profesional.
+        Planes claros, de pago único o mes a mes, para lanzar y hacer crecer tu negocio de forma rápida y profesional.
       </p>
 
       <div className="max-w-6xl mx-auto">

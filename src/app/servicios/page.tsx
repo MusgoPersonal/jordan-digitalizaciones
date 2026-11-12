@@ -106,7 +106,7 @@ export default function ServiciosPage() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-2 font-display">Catálogo de Servicios</h1>
         <p className="text-lg text-text-warm text-center mb-4 max-w-4xl mx-auto">
-          Explora todas nuestras soluciones digitales. Selecciona los módulos que tu negocio necesita y arma tu presupuesto en tiempo real.
+          Elige lo que tu negocio necesita y mira el precio al instante. Arma tu cotización sin letra chica.
         </p>
         <div className="text-center mb-8">
           <Link href="/servicios/servicios-puntuales" className="text-sm font-semibold text-verdigris hover:text-kinpaku transition-colors">
@@ -259,11 +259,11 @@ export default function ServiciosPage() {
 
         <section className="mb-12">
           <button onClick={() => setShowTools(!showTools)} className="text-2xl font-bold mb-4 text-kinpaku hover:text-kinpaku-pale transition-all flex items-center gap-2">
-            {showTools ? "▼" : "▶"} Transparencia de Costos de Herramientas
+            {showTools ? "▼" : "▶"} ¿Cuánto cuesta mantener estas herramientas?
           </button>
           {showTools && (
             <div className="overflow-hidden">
-              <p className="text-text-warm mb-4">¿Cuánto cuesta levantar y mantener esta infraestructura por tu cuenta en la nube?</p>
+              <p className="text-text-warm mb-4">¿Cuánto costaría tener todo esto por tu cuenta en la nube?</p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>

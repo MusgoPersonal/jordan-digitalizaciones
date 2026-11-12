@@ -121,7 +121,7 @@ export default function DisenoRecurrente() {
     <div className="py-12 px-4 sm:px-6 lg:px-8 bg-lacquer text-champagne">
       <h1 className="text-3xl md:text-5xl font-extrabold text-champagne mb-4 text-center font-display">Diseño Recurrente</h1>
       <p className="text-lg text-text-warm text-center mb-10 max-w-4xl mx-auto">
-        Delega la creación de contenido y diseño gráfico recurrente con un costo fijo mensual, liberando tu tiempo para enfocarte en el negocio.
+        Deja el diseño en mis manos con un precio fijo al mes, y dedica tu tiempo a tu negocio.
       </p>
 
       <div className="max-w-6xl mx-auto">

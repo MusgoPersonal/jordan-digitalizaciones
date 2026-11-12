@@ -18,7 +18,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
   {
     id: "landing",
     title: "Landing Pages",
-    subtitle: "Ideal para lanzar ideas o campañas de conversión rápidas",
+    subtitle: "Ideal para lanzar tu idea o una campaña y conseguir clientes rápido",
     badge: "Conversión",
     levels: [
       {
@@ -46,7 +46,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
   {
     id: "website",
     title: "Sitios Web Escalables",
-    subtitle: "Páginas multi-sección dinámicas con gestor de contenido",
+    subtitle: "Una web completa, con varias secciones y fácil de actualizar",
     badge: "Escalable",
     levels: [
       {
@@ -74,7 +74,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
   {
     id: "ecommerce",
     title: "E-Commerce",
-    subtitle: "Tiendas online profesionales preparadas para vender",
+    subtitle: "Tu tienda online lista para vender desde el primer día",
     badge: "Ventas",
     levels: [
       {
@@ -102,7 +102,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
   {
     id: "rrss",
     title: "Manejo de RRSS para PYMEs",
-    subtitle: "Gestión estratégica de tus redes sociales para aumentar tu comunidad y ventas",
+    subtitle: "Gestión de tus redes para ganar seguidores y más clientes",
     badge: "Redes Sociales",
     levels: [
       {
@@ -125,7 +125,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
   {
     id: "inmersive",
     title: "Ingeniería UX/UI y Web Inmersiva",
-    subtitle: "Efectos en 3D, scroll cinemático y neuromarketing",
+    subtitle: "Diseño moderno y llamativo, con efectos que sorprenden",
     badge: "Innovación",
     fromPrice: 350000,
     levels: [
@@ -149,7 +149,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
   {
     id: "design",
     title: "Asistente de Diseño Recurrente",
-    subtitle: "Diseño gráfico bajo demanda con tarifa plana mensual",
+    subtitle: "Diseño gráfico cada mes con una tarifa fija y clara",
     badge: "Diseño",
     levels: [
       {
@@ -172,7 +172,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
   {
     id: "social",
     title: "Utilidad Digital y Pruebas Sociales",
-    subtitle: "Instalación de utilidades clave para generar confianza y automatizar",
+    subtitle: "Herramientas simples que dan confianza y automatizan tu negocio",
     badge: "Utilidad",
     fromPrice: 45000,
     levels: [

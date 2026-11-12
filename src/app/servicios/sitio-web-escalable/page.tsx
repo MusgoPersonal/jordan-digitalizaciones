@@ -175,7 +175,7 @@ export default function SitioWebEscalable() {
     <div className="py-12 px-4 sm:px-6 lg:px-8 bg-lacquer text-champagne">
       <h1 className="text-3xl md:text-5xl font-extrabold text-champagne mb-4 text-center font-display">Sitio Web Escalable</h1>
       <p className="text-lg text-text-warm text-center mb-10">
-        Soluciones robustas para la construcción y mantenimiento de un sitio web completo con múltiples secciones y gestor de contenido.
+        Una web completa y profesional, con varias secciones que puedes actualizar tú mismo.
       </p>
 
       <div className="max-w-6xl mx-auto">

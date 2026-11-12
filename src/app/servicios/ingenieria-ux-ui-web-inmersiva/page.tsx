@@ -59,7 +59,7 @@ export default function WebInmersiva() {
     <div className="py-12 px-4 sm:px-6 lg:px-8 bg-lacquer text-champagne">
       <h1 className="text-3xl md:text-5xl font-extrabold text-champagne mb-4 text-center font-display">Ingeniería UX/UI y Web Inmersiva</h1>
       <p className="text-lg text-text-warm text-center mb-10 max-w-4xl mx-auto">
-        Transforme su presencia digital en una experiencia memorable y de alto impacto. Desarrollo web personalizado con efectos inmersivos y diseño basado en neuromarketing.
+        Haz que tu web se sienta única: animaciones, efectos y diseño que sorprenden a tus clientes y los invitan a quedarse.
       </p>
 
       <div className="max-w-6xl mx-auto">

@@ -59,7 +59,7 @@ export default function UtilidadesDigitales() {
     <div className="py-12 px-4 sm:px-6 lg:px-8 bg-lacquer text-champagne">
       <h1 className="text-3xl md:text-5xl font-extrabold text-champagne mb-4 text-center font-display">Utilidad Digital y Pruebas Sociales</h1>
       <p className="text-lg text-text-warm text-center mb-10 max-w-4xl mx-auto">
-        Instala herramientas esenciales para capturar datos, automatizar la comunicación inicial y construir confianza en tu negocio.
+        Herramientas simples para captar datos, responder más rápido y dar confianza a tus clientes.
       </p>
 
       <div className="max-w-6xl mx-auto">

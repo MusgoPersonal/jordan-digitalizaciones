@@ -21,8 +21,8 @@ export default function SobreMi() {
                 Antes de los 18 ya estaba trabajando desde mi casa para clientes en <strong className="text-champagne">Italia, 
                 Estados Unidos, Noruega, Perú y Argentina</strong>. Autodidacta por naturaleza, he complementado 
                 mi formación con cursos de neurociencia en Biia Lab, neuromarketing con Jürgen Clarick, 
-                ventas con Alex Day y Brian Tracy, SEO con Romuald Fonts, y actualmente estoy cursando 
-                programación en Harvard y Stanford.
+                ventas con Alex Day y Brian Tracy, SEO con Romuald Fonts, y sigo formándome
+                cada día en programación y negocios.
               </p>
               <p className="text-lg text-text-warm leading-relaxed">
                 También tengo vasta experiencia en herramientas open-source y automatización de procesos 
@@ -30,8 +30,8 @@ export default function SobreMi() {
                 tareas manuales y optimizan operaciones completas.
               </p>
               <p className="text-lg text-text-warm leading-relaxed">
-                Mi misión es <strong className="text-kinpaku">digitalizar negocios</strong> y abarcar a la gran minoría 
-                — esos emprendedores y PYMEs que merecen las mismas herramientas que las grandes empresas. 
+                Mi misión es <strong className="text-kinpaku">digitalizar negocios</strong> y ayudar a 
+                emprendedores y PYMEs que merecen las mismas herramientas que las grandes empresas. 
                 Por eso creé <strong className="text-champagne">Jordan Digitalizaciones</strong> y tengo como meta 
                 a largo plazo mi propio <strong className="text-kinpaku">marketplace (SAM)</strong>.
               </p>
