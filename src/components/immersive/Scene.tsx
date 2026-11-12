@@ -13,14 +13,14 @@ import Orb from "./Orb";
 import AmbientParticles from "./AmbientParticles";
 import DataRings from "./DataRings";
 import Worlds from "./Worlds";
-import { sceneState, lerp } from "./state";
+import { sceneState, lerp, damp } from "./state";
 
 // Poses de cámara por sección (posición + hacia dónde mira).
 // La cámara "vuela" entre estos mundos interpolando.
 const POSES: { pos: [number, number, number]; tgt: [number, number, number] }[] = [
   { pos: [0, 0.4, 9], tgt: [0, 0, 0] }, // 0 hero — oscuridad, orbe lejano
   { pos: [2, 1.2, 6.5], tgt: [0, 0, 0] }, // 1 arranque — se enciende
-  { pos: [0, 0, 0.3], tgt: [0, 0, -2] }, // 2 interior — dentro del orbe
+  { pos: [0, 0.1, 1.0], tgt: [0, 0, -4] }, // 2 interior — dentro del orbe (sin atravesar el núcleo)
   { pos: [0, 1.6, 5.5], tgt: [0, 0, 0] }, // 3 catálogo — nodos alrededor
   { pos: [4.5, 0.6, 4.5], tgt: [0, 0, 0] }, // 4 stack — orbitando anillos
   { pos: [-3.5, 1, 4.5], tgt: [0, 0, 0] }, // 5 experiencia — amplio
@@ -36,8 +36,12 @@ function CameraRig() {
 
   const pos = useMemo(() => new THREE.Vector3(), []);
   const tgt = useMemo(() => new THREE.Vector3(), []);
+  // Posición/objetivo actuales suavizados (evita saltos y "zooms" bruscos).
+  const curPos = useMemo(() => new THREE.Vector3(0, 0.4, 9), []);
+  const curTgt = useMemo(() => new THREE.Vector3(0, 0, 0), []);
 
-  useFrame(() => {
+  useFrame((_, delta) => {
+    const dt = Math.min(delta, 0.05); // evita saltos al volver a la pestaña
     // Sección continua: section + sectionProgress (0..10)
     let s = sceneState.section + sceneState.sectionProgress;
     s = Math.min(s, POSES.length - 1);
@@ -69,8 +73,21 @@ function CameraRig() {
     // Parallax sutil con el mouse (desactivado en móvil/reduced-motion).
     const px = sceneState.reducedMotion ? 0 : sceneState.pointerX * 0.45;
     const py = sceneState.reducedMotion ? 0 : sceneState.pointerY * 0.3;
-    camera.position.set(pos.x * m + px, pos.y * m - py, pos.z * m);
-    camera.lookAt(tgt);
+    const tx = pos.x * m + px;
+    const ty = pos.y * m - py;
+    const tz = pos.z * m;
+
+    // Suavizado exponencial: la cámara alcanza el objetivo sin tirones.
+    const k = 6;
+    curPos.x = damp(curPos.x, tx, k, dt);
+    curPos.y = damp(curPos.y, ty, k, dt);
+    curPos.z = damp(curPos.z, tz, k, dt);
+    curTgt.x = damp(curTgt.x, tgt.x, k, dt);
+    curTgt.y = damp(curTgt.y, tgt.y, k, dt);
+    curTgt.z = damp(curTgt.z, tgt.z, k, dt);
+
+    camera.position.copy(curPos);
+    camera.lookAt(curTgt);
   });
 
   return null;

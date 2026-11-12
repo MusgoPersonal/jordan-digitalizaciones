@@ -6,7 +6,7 @@ import { sceneState, smoothstep, damp } from "./state";
 
 // Presencia del orbe por sección: se desvanece cuando la cámara entra en
 // otros mundos y reaparece al volver (conversión / cta).
-const ORB_PRESENCE = [1, 1, 0.35, 0.2, 0.35, 0.3, 0.35, 0.45, 0.05, 0.55, 0.85];
+const ORB_PRESENCE = [1, 1, 0, 0.2, 0.35, 0.3, 0.35, 0.45, 0.05, 0.55, 0.85];
 
 const EMERALD = "#059669";
 const EMERALD_SOFT = "#34d399";
